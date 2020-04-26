@@ -14,7 +14,7 @@ class StatesDetailContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     if (i == 0) {
       return Container(
-        padding: EdgeInsets.all(15.0),
+        padding: EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           border: transactions_stat[i]['border'] ?? Border(),
           borderRadius: BorderRadius.circular(15.0),
@@ -34,6 +34,7 @@ class StatesDetailContainer extends StatelessWidget {
               ),
             Expanded(
               child:Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Icon(Icons.arrow_upward,color: Colors.white,size: 20,),
                   Center(
@@ -63,7 +64,7 @@ class StatesDetailContainer extends StatelessWidget {
       );
     } else if (i == 2) {
       return Container(
-        padding: EdgeInsets.all(15.0),
+        padding: EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           border: transactions_stat[i]['border'] ?? Border(),
           borderRadius: BorderRadius.circular(15.0),
@@ -83,6 +84,7 @@ class StatesDetailContainer extends StatelessWidget {
             ),
             Expanded(
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Icon(Icons.arrow_upward,color: Colors.white,size: 20,),
                   Center(
@@ -113,7 +115,7 @@ class StatesDetailContainer extends StatelessWidget {
       );
     } else if(i==1){
       return Container(
-        padding: EdgeInsets.all(15.0),
+        padding: EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           border: transactions_stat[i]['border'] ?? Border(),
           borderRadius: BorderRadius.circular(15.0),
@@ -133,6 +135,7 @@ class StatesDetailContainer extends StatelessWidget {
             ),
             Expanded(
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Icon(Icons.arrow_upward,color: Colors.white,size: 20,),
                   Center(
@@ -153,6 +156,7 @@ class StatesDetailContainer extends StatelessWidget {
                   style: TextStyle(
                     color: transactions_stat[i]['text_color'],
                   ),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ),

@@ -1,7 +1,6 @@
 library globals;
 
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 //Variables
@@ -15,6 +14,7 @@ String BASE_URL = "https://api.covid19api.com/summary";
 enum actions { add, receive }
 
 Color darkBlue = Color(0xff071d40);
+Color darkGreen = Colors.green;
 Color lightBlue = Color(0xff1b4dff);
 
 String username = "Cybdom Tech";

@@ -27,6 +27,7 @@ dependencies:
   flash: ^1.2.0
   intl:
   syncfusion_flutter_charts: ^17.3.14
+  shimmer: ^1.1.1
 
 dev_dependencies:
   flutter_test:

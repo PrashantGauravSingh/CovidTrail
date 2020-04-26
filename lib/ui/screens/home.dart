@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:shimmer/shimmer.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style:TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.bold,
-                        color: darkBlue,
+                        color: darkGreen,
                       ),
                     ),
                     Text(
@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style:TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.normal,
-                        color: darkBlue,
+                        color: darkGreen,
                       ),
                     ),
                   ],
@@ -116,14 +116,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           text:numberFormatter(covidDataList.totalList.totalConfirmed),
                           style: Theme.of(context)
                               .textTheme
-                              .display1
+                              .display2
                               .apply(color: Colors.white, fontWeightDelta: 2),
                         ),
                       ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top:8.0,right: 8.0,bottom: 8.0),
+                    padding: const EdgeInsets.only(top:12.0,right: 8.0,bottom: 8.0),
                     child: Row(
                       children: <Widget>[
                         Icon(Icons.new_releases, color: Colors.grey[300]),
@@ -200,12 +200,40 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 20.0,
             ),
-            Center(
-              child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height/3,
-                  child: getAngleRadialBarChart(true,covidDataList)),
-            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [BoxShadow(
+                    color: Color(0x1a181818),
+                    offset: Offset(5,1),
+                    blurRadius: 25,
+                    spreadRadius: 10
+                ) ],
+              ),
+              child:  Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left:15.0,top: 15.0),
+                      child: Text(
+                        "Global Stats",
+                        style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold,
+                          color: darkBlue,
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height/3.5,
+                          child: getAngleRadialBarChart(true,covidDataList)),
+                    )
+                  ],
+                ),
+              ),
             Divider(
               height: 10,
             ),
@@ -256,13 +284,14 @@ class _HomeScreenState extends State<HomeScreen> {
 //              ],
 //            )
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(left:8.0,top: 8.0),
               child: Text(
                   countryDataList.country,
-                style: Theme.of(context)
-                    .textTheme
-                    .display1
-                    .apply(color: darkBlue, fontWeightDelta: 2),
+                style: TextStyle(
+                  fontSize: 19,
+                  fontWeight: FontWeight.bold,
+                  color: darkBlue,
+                ),
               ),
             ),
 
@@ -271,8 +300,8 @@ class _HomeScreenState extends State<HomeScreen> {
               itemCount: transactions_stat.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 childAspectRatio: 3 / 4,
-                crossAxisSpacing: 15,
-                mainAxisSpacing: 15,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
                 crossAxisCount: 3,
               ),
               itemBuilder: (ctx, id) {
@@ -284,9 +313,69 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
     }else{
-      listViewWidget=Center(child: CircularProgressIndicator(
-        valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
-      ));
+      listViewWidget=Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            Expanded(
+              child: Shimmer.fromColors(
+                baseColor: Colors.grey[300],
+                highlightColor: Colors.grey[100],
+                enabled: true,
+                child: ListView.builder(
+                  itemBuilder: (_, __) => Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: 48.0,
+                          height: 48.0,
+                          color: Colors.white,
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 8.0),
+                        ),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Container(
+                                width: double.infinity,
+                                height: 8.0,
+                                color: Colors.white,
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(vertical: 2.0),
+                              ),
+                              Container(
+                                width: double.infinity,
+                                height: 8.0,
+                                color: Colors.white,
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(vertical: 2.0),
+                              ),
+                              Container(
+                                width: 40.0,
+                                height: 8.0,
+                                color: Colors.white,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  itemCount: 10,
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
 
     }
     return Scaffold(
