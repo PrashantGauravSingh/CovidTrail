@@ -427,8 +427,8 @@ SfCircularChart getAngleRadialBarChart(bool isTileView,CovidDataModel covDataLis
 List<RadialBarSeries<_RadialData, String>> getRadialBarSeries(bool isTileView,  CovidDataModel dataList) {
   final List<_RadialData> chartData = <_RadialData>[
     _RadialData('Confirmed ${(dataList.totalList.totalConfirmed~/dataList.totalList.newConfirmed).toInt()}%\n${dataList.totalList.newConfirmed}/${dataList.totalList.totalConfirmed}',(dataList.totalList.totalConfirmed~/dataList.totalList.newConfirmed).toInt(), 'Confirmed', null, const Color.fromRGBO(0, 201, 230, 1.0)),
-    _RadialData('Death ${(dataList.totalList.totalDeaths~/dataList.totalList.newDeaths).toInt()}%\n${dataList.totalList.newDeaths}/${dataList.totalList.totalDeaths}', (dataList.totalList.totalDeaths~/dataList.totalList.newDeaths).toInt(), 'Death', null, const Color.fromRGBO(63, 224, 0, 1.0)),
-    _RadialData('Recovered ${(dataList.totalList.totalRecovered~/dataList.totalList.newRecovered).toInt()}%\n${dataList.totalList.newRecovered}/${dataList.totalList.totalRecovered}', (dataList.totalList.totalRecovered~/dataList.totalList.newRecovered).toInt(), 'Recovered', null, const Color.fromRGBO(226, 1, 26, 1.0)),
+    _RadialData('Death ${(dataList.totalList.totalDeaths~/dataList.totalList.newDeaths).toInt()}%\n${dataList.totalList.newDeaths}/${dataList.totalList.totalDeaths}', (dataList.totalList.totalDeaths~/dataList.totalList.newDeaths).toInt(), 'Death', null, const Color.fromRGBO(226, 1, 26, 1.0)),
+    _RadialData('Recovered ${(dataList.totalList.totalRecovered~/dataList.totalList.newRecovered).toInt()}%\n${dataList.totalList.newRecovered}/${dataList.totalList.totalRecovered}', (dataList.totalList.totalRecovered~/dataList.totalList.newRecovered).toInt(), 'Recovered', null, const Color.fromRGBO(63, 224, 0, 1.0)),
   ];
   final List<RadialBarSeries<_RadialData, String>> list = <RadialBarSeries<_RadialData, String>>[
     RadialBarSeries<_RadialData, String>(
