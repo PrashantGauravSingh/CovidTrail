@@ -28,6 +28,11 @@ dependencies:
   intl:
   syncfusion_flutter_charts: ^17.3.14
   shimmer: ^1.1.1
+  flag: ^2.0.3
+  introduction_screen:
+  url_launcher:
+
+
 
 dev_dependencies:
   flutter_test:
@@ -51,7 +56,7 @@ flutter:
   #  - images/a_dot_ham.jpeg
   assets:
 
-    - assets/images/covid-19.png
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -76,5 +81,26 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+  fonts:
+    - family: Roboto
+      fonts:
+           - asset: assets/fonts/Roboto-Black.ttf
+           - asset: assets/fonts/Roboto-Bold.ttf
+           - asset: assets/fonts/Roboto-Thin.ttf
+           - asset: assets/fonts/Roboto-Medium.ttf
+           - asset: assets/fonts/Roboto-Regular.ttf
+           - asset: assets/fonts/Roboto-Italic.ttf
+           - asset: assets/fonts/Roboto-Light.ttf
+           - asset: assets/fonts/Raleway-Regular.ttf
+           - asset: assets/fonts/Raleway-Light.ttf
+           - asset: assets/fonts/Raleway-Thin.ttf
+           - asset: assets/fonts/Raleway-Medium.ttf
+           - asset: assets/fonts/Raleway-Bold.ttf
+           - asset: assets/fonts/Raleway-Italic.ttf
+           - asset: assets/fonts/Raleway-Light.ttf
+           - asset: assets/fonts/Raleway-SemiBold.ttf
+           - asset: assets/fonts/Raleway-Black.ttf
+
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

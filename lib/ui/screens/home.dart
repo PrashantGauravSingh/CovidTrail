@@ -1,6 +1,7 @@
 import 'package:covid/CovidDataModel/CovidDataModel.dart';
 import 'package:covid/Network/DataApiCall.dart';
 import 'package:covid/global.dart';
+import 'package:covid/ui/screens/CovidListCountry.dart';
 import 'package:covid/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -8,6 +9,8 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:flag/flag.dart';
+
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -32,7 +35,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   @override
   Widget build(BuildContext context) {
-
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.white,
+        statusBarIconBrightness: Brightness.dark
+    ));
 
     if(isDataAvailable) {
       listViewWidget = SingleChildScrollView(
@@ -71,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style:TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.bold,
-                        color: darkGreen,
+                        color: Color(0xff2BBCD4),
                       ),
                     ),
                     Text(
@@ -79,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style:TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.normal,
-                        color: darkGreen,
+                        color: Color(0xff2BBCD4),
                       ),
                     ),
                   ],
@@ -102,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     "Global Case",
                     style: TextStyle(
                       fontSize: 19,
-                      fontWeight: FontWeight.bold,
+                      fontFamily: "Roboto-Bold",
                       color: Colors.white,
                     ),
                   ),
@@ -234,9 +240,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-            Divider(
-              height: 10,
-            ),
 //            Row(
 //              children: <Widget>[
 //                Flexible(
@@ -283,18 +286,44 @@ class _HomeScreenState extends State<HomeScreen> {
 //                )
 //              ],
 //            )
-            Padding(
-              padding: const EdgeInsets.only(left:8.0,top: 8.0),
+
+          ListTile(
+            leading: Flags.getFlag(country:countryDataList.countryCode, height: 50, width: 50),
+            title:Padding(
+              padding: const EdgeInsets.only(left:10.0,top: 8.0),
               child: Text(
-                  countryDataList.country,
+                countryDataList.country.toUpperCase(),
                 style: TextStyle(
-                  fontSize: 19,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400,
                   color: darkBlue,
                 ),
               ),
             ),
+            trailing: InkWell(
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CovidListCountry(covidDataList),
+                  ),
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(left:10.0,top: 8.0),
+                child: Text(
+                  "View All",
+                  style: TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w400,
+                    decoration: TextDecoration.underline,
+                    color: darkBlue,
+                  ),
+                ),
+              ),
+            ),
 
+          ),
             GridView.builder(
               shrinkWrap: true,
               itemCount: transactions_stat.length,
@@ -307,8 +336,7 @@ class _HomeScreenState extends State<HomeScreen> {
               itemBuilder: (ctx, id) {
                 return StatesDetailContainer(i: id,countryList: countryDataList);
               },
-            ),
-
+            )
           ],
         ),
       );

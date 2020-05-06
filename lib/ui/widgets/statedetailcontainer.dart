@@ -27,7 +27,8 @@ class StatesDetailContainer extends StatelessWidget {
                 child: Text(
                   "Confirmed",
                   style: TextStyle(
-                    fontSize: 11,
+                    fontSize: 15,
+                        fontWeight: FontWeight.w500,
                         color: transactions_stat[i]['text_color']),
                   ),
               )
@@ -36,12 +37,13 @@ class StatesDetailContainer extends StatelessWidget {
               child:Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Icon(Icons.arrow_upward,color: Colors.white,size: 20,),
+                  Icon(Icons.arrow_upward,color: Colors.white,size: 15,),
                   Center(
                     child: Text(
                       "[${countryList.newConfirmed}]",
                       style: TextStyle(
                           fontSize: 10,
+                          fontWeight: FontWeight.w300,
                           color: transactions_stat[i]['text_color']),
                     ),
                   ),
@@ -54,6 +56,7 @@ class StatesDetailContainer extends StatelessWidget {
                   "${countryList.totalConfirmed}",
                   style: TextStyle(
                     fontSize: 15,
+                    fontWeight: FontWeight.w600,
                     color: transactions_stat[i]['text_color'],
                   ),
                 ),
@@ -77,7 +80,8 @@ class StatesDetailContainer extends StatelessWidget {
                   child: Text(
                     "Death",
                     style: TextStyle(
-                        fontSize: 11,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
                         color: transactions_stat[i]['text_color']),
                   ),
                 )
@@ -86,12 +90,13 @@ class StatesDetailContainer extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Icon(Icons.arrow_upward,color: Colors.white,size: 20,),
+                  Icon(Icons.arrow_upward,color: Colors.white,size: 15,),
                   Center(
                     child: Text(
                       "[${countryList.newDeaths}]",
                       style: TextStyle(
                         fontSize: 11,
+                        fontWeight: FontWeight.w300,
                         color: transactions_stat[i]['text_color'],
                       ),
                     ),
@@ -105,6 +110,7 @@ class StatesDetailContainer extends StatelessWidget {
                   "${countryList.totalDeaths}",
                   style: TextStyle(
                     fontSize: 15,
+                    fontWeight: FontWeight.w600,
                     color: transactions_stat[i]['text_color'],
                   ),
                 ),
@@ -128,7 +134,8 @@ class StatesDetailContainer extends StatelessWidget {
                   child: Text(
                     "Recovered",
                     style: TextStyle(
-                        fontSize: 11,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
                         color: transactions_stat[i]['text_color']),
                   ),
                 )
@@ -137,12 +144,13 @@ class StatesDetailContainer extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Icon(Icons.arrow_upward,color: Colors.white,size: 20,),
+                  Icon(Icons.arrow_upward,color: Colors.white,size: 15,),
                   Center(
                     child: Text(
                       "[${countryList.newRecovered}]",
                       style: TextStyle(
                           fontSize: 11,
+                          fontWeight: FontWeight.w300,
                           color: transactions_stat[i]['text_color']),
                     ),
                   ),
@@ -154,6 +162,8 @@ class StatesDetailContainer extends StatelessWidget {
                 child: Text(
                   "${countryList.totalRecovered}",
                   style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
                     color: transactions_stat[i]['text_color'],
                   ),
                   textAlign: TextAlign.center,
